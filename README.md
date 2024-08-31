@@ -8,5 +8,5 @@
 
 # API接続申し込み方法
 
-- 次のベータ版を試してください。寿命計算をもとにした健康アドバイスサービスです[私の寿命、あと何年？](https://medicalhealth.blob.core.windows.net/medicalhealth/index.html)（個人使用は無料）
+- 次のベータ版を試してください。寿命計算をもとにした健康アドバイスサービスです[私の寿命、あと何年？](https://medicalhealth.blob.core.windows.net/medicalhealth/index.html)（個人使用、公益目的使用は無料）
 - 使用後に、[アンケートフォーム](https://docs.google.com/forms/d/e/1FAIpQLScSKMGFgLAcHFeaQ9nG3YozRF3mczSJlH37I0nncOTeQ8oYbg/viewform?usp=sf_link)を通じてメアド等を連絡ください。
