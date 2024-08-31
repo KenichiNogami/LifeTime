@@ -79,7 +79,6 @@
 
 - 使用後に、[アンケートフォーム](https://docs.google.com/forms/d/e/1FAIpQLScSKMGFgLAcHFeaQ9nG3YozRF3mczSJlH37I0nncOTeQ8oYbg/viewform?usp=sf_link)を通じてメアド等を連絡ください。
 
-- [GITHUB](https://github.com/KenichiNogami/MyLifeTime/blob/main/README.md)
 
 
 
