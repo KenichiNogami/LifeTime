@@ -16,23 +16,29 @@
 |tg|number|脂質検査の血中中性脂肪（TG)をmg/dLで設定|必須項目|
 |hdl|number|脂質検査の血中善玉コレステロール（HDL)をmg/dLで設定|必須項目|
 |ldl|number|脂質検査の血中悪玉コレステロール（LDL)をmg/dLで設定|必須項目|
-|tl|number|脂質検査の血中総コレステロール（TL)をmg/dLで設定|必須項目|
-|bs|number|空腹時の血中のブドウ糖をmg/dLで設定|必須項目|
-|hba|number|ヘモグロビンAのうちブドウ糖と結合しているものを%で設定|必須項目|
-|rb|number|赤血球数を万個/mmで設定|必須項目|
-|hb|number|血中のへモグロビン(Hb)をg/dlで設定|必須項目|
-|plat|number|血中の血小板を万個/μLで設定|必須項目|
-|crt|number|腎機能検査の血中クレアチニンをmg/dLで設定|必須項目|
+|tl|number|脂質検査の血中総コレステロール（TL)をmg/dLで設定|必須項目*|
+|bs|number|空腹時の血中のブドウ糖をmg/dLで設定|必須項目*|
+|hba|number|ヘモグロビンAのうちブドウ糖と結合しているものを%で設定|必須項目*|
+|rb|number|赤血球数を万個/mmで設定|必須項目*|
+|hb|number|血中のへモグロビン(Hb)をg/dlで設定|必須項目*|
+|plat|number|血中の血小板を万個/μLで設定|必須項目*|
+|crt|number|腎機能検査の血中クレアチニンをmg/dLで設定|必須項目*|
+|ua|number|尿酸をmg/dLで設定|必須項目*|
 |urs|number|糖尿を変換表Aで設定|必須項目|
 |urp|number|尿蛋白を変換表Aで設定|必須項目|
 |heart|number|心電図の所見を変換表Bで設定|必須項目|
 |lung|number|肺レントゲンの所見を変換表Bで設定|必須項目|
 |opinion|number|1年以内の罹病について変換表Cで設定|必須項目|
 |cancer|number|がん既往情報を変換表Dで設定|必須項目|
+|wine|number|飲酒習慣について変換表Eで設定|必須項目|
+|smoke|number|喫煙習慣について変換表Fで設定|必須項目|
 |opiniont|string|1年以内の罹病した病名を記入|任意項目|
 |cancert|string|がんの部位を記入|任意項目|
-|wine|number|飲酒習慣について変換表Eで設定|任意項目|
-|smoke|number|喫煙習慣について変換表Fで設定|任意項目|
+|drugs|string|継続的に服薬している薬名を記入|任意項目|
+|drugst|string|服薬している理由・病名を記入|任意項目|
+
+* 検査項目に含まれない場合、−１を設定する。
+
 
 #
 
