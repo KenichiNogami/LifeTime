@@ -24,7 +24,7 @@
 |plat|number|血中の血小板を万個/μLで設定|必須項目*|
 |crt|number|腎機能検査の血中クレアチニンをmg/dLで設定|必須項目*|
 |ua|number|尿酸をmg/dLで設定|必須項目*|
-|urs|number|糖尿を変換表Aで設定|必須項目|
+|urs|number|尿糖を変換表Aで設定|必須項目|
 |urp|number|尿蛋白を変換表Aで設定|必須項目|
 |heart|number|心電図の所見を変換表Bで設定|必須項目|
 |lung|number|肺レントゲンの所見を変換表Bで設定|必須項目|
