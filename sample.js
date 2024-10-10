@@ -13,27 +13,11 @@ const jsonFile = {
   tg: 42,
   hdl: 70,
   ldl: 89,
-  tl: 167,
-  bs: 90,
-  hba: 5.5,
-  rb: 514,
-  hb: 15.6,
-  ua: -1,
-  plat: 17.9,
-  crt: 0.81,
   gender: 1,
-  opinion: 0,
-  opiniont: "椎骨動脈解離",
-  drugs: "スタチン",
-  drugst: "脳梗塞予防",
   urs: 9,
   urp: 9,
   heart: 0,
-  lung: 0,
-  cancer: 0,
-  wine: 1,
-  smoke: 0,
-  cancert: ""
+  lung: 0
 };
 
 const apiUrl = "https://myjumyo.azurewebsites.net/api/HttpTrigger1";
