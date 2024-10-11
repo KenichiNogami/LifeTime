@@ -51,7 +51,6 @@
 |KEY|形式|説明|
 |-|-|-|
 |ylt|number|被験者の寿命年齢|
-|gfr|number|eGFR値|
 |nlt|number|被験者年齢の寿命年齢（国民平均）|
 |e65|number|65歳までの生存確率（％）|
 |e70|number|70歳までの生存確率（％）|
