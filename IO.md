@@ -1,3 +1,8 @@
+定期健康診断（40歳位以上の特定健診）の必須検査項目をINPUTして、それに基づき、寿命推定や節目の年齢までの生存確率の推定を行います。
+
+加えて、GPT-4oに使えるプロンプトを返します。
+
+
 # INPUT形式(JSON)
 
 
@@ -57,4 +62,4 @@
 |e80|number|80歳までの生存確率（％）|
 |e90|number|90歳までの生存確率（％）|
 |e100|number|100歳までの生存確率（％）|
-|healthcheckprompt|stringの配列|GPT-40のAPIで使用可能なPrompt|
+|healthcheckprompt|stringの配列|GPT-4oのAPIで使用可能なPrompt|
