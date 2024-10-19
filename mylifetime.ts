@@ -105,7 +105,7 @@ export async function httpTrigger1(request: HttpRequest, context: InvocationCont
         },
         mergeData: {
           agent: "dataObjectMergeTemplateAgent",
-          inputs: ["medication", "lifestyle", "healthcheck"],
+          inputs: [":medication", ":lifestyle", ":healthcheck"],
         },
       },
     };
