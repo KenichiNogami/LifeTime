@@ -116,7 +116,7 @@ export async function httpTrigger1(request: HttpRequest, context: InvocationCont
   
       const main = async () => {
         const graph = new GraphAI(graphData, {
-          vanillaFetchAgent,
+          vanillaFetchAgent, dataObjectMergeTemplateAgent
         });
         const res = await graph.run(true);
         console.log(res);
