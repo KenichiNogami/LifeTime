@@ -40,6 +40,7 @@ interface node2gpt {
   system: string;
   maxtokens: number;
   skip: string;
+  agenda: string;
   model: string;
   task: string;
 }
@@ -59,22 +60,25 @@ export async function httpTrigger1(request: HttpRequest, context: InvocationCont
         system: "あなたは一流の薬剤師です。薬に詳しくない人にわかりやすく、丁寧に説明できます。", 
         maxtokens: 1000, 
         skip: medication, 
-        model: "gpt-4o", 
-        task: "text-generation"};
+        agenda: "medicationAdvice",
+        model: "OpenAI", 
+        task: "Advice"};
       const lifestylesInput = {
         prompt: lifestylesprompt, 
         system: "あなたは健康管理士、理学療法士かつ生活アドバイさーです。健康やライフスタイル、理学療法に関するアドバイスを行います。", 
         maxtokens: 1000, 
-        skip: "no skip", 
-        model: "gpt-4o", 
-        task: "text-generation"};
+        skip: "no skip",
+        agenda: "lifestyleAdvice",
+        model: "OpenAI", 
+        task: "Advice"};
       const healthcheckInput = {
         prompt: healthcheckprompt, 
         system: "あなたは医師です。健康診断結果に基づいてアドバイスを行います。", 
         maxtokens: 1000, 
-        skip: "no skip", 
-        model: "gpt-4o", 
-        task: "text-generation"};
+        skip: "no skip",
+        agenda: "healthcheckAdvice", 
+        model: "OpenAI", 
+        task: "Advice"};
     
     const graphData = {
       version: 0.5,
@@ -110,32 +114,31 @@ export async function httpTrigger1(request: HttpRequest, context: InvocationCont
       },
     };
   
-    const main = async () => {
-      const graph = new GraphAI(graphData, {
-        vanillaFetchAgent,
-        dataObjectMergeTemplateAgent,
-      });
-      const res = await graph.run(true);
-      console.log(res);
-      return {
-        status: 200,
-        body: JSON.stringify(res), // ここで res を JSON 文字列に変換
-      };
-    }
+      const main = async () => {
+        const graph = new GraphAI(graphData, {
+          vanillaFetchAgent,
+        });
+        const res = await graph.run(true);
+        console.log(res);
+        return {
+          status: 200,
+          body: JSON.stringify(res), 
+        };
+      }
   
-        const res = await main();
+    const res = await main();
         console.log(res);
         return res;
-      } catch (err) {
+  } catch (err) {
         console.error(err);
         return {
           status: 500,
           body: JSON.stringify({
             message: err.message,
             stack: err.stack,
-          }), // エラーメッセージとスタックトレースを含むオブジェクトをstringに変換
+          }), 
         };
-      }
+  }
 }
 
 app.http('httpTrigger1', {
@@ -143,3 +146,4 @@ app.http('httpTrigger1', {
     authLevel: 'anonymous',
     handler: httpTrigger1
 });
+
