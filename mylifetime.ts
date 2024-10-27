@@ -60,7 +60,7 @@ export async function httpTrigger1(request: HttpRequest, context: InvocationCont
 
     const graphData = {
       version: 0.5,
-      concurrency: 2,
+      concurrency: 3,
       nodes
     };
     console.log(graphData);
