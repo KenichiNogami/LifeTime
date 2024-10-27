@@ -6,9 +6,11 @@ import { dataObjectMergeTemplateAgent } from "@graphai/data_agents";
 export async function httpTrigger1(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
   try {
     const Body = await request.json() as any;
-    const Data = Body.healthcheckAllData;
 
-    // Function to create node structure for each Ia, Ib, Ic, etc.
+    const Data = Body.healthcheckAllData;
+    const letters = Body.letters;
+    const maxindex = Body.maxindex;
+
     const createNode = (prefix: string, index: number) => ({
       value: {
         prompt: Data[`${prefix}${index}`].prompt,
@@ -19,12 +21,20 @@ export async function httpTrigger1(request: HttpRequest, context: InvocationCont
         agent: Data[`${prefix}${index}`].agent,
       }
     });
-
-    // Function to create vanillaFetchAgent nodes Ra, Rb, Rc
-    const createFetchAgentNode = (prefix: string, index: number) => ({
+    const createFetchAgentNode1 = (prefix: string, index: number) => ({
       agent: "vanillaFetchAgent",
       inputs: {
-        body: `:${prefix}${index}`,
+        body: `:${prefix.toUpperCase()}${index}`, 
+        method: "POST",
+        url: "https://node2gpt2025.azurewebsites.net/api/httpTrigger?",
+      }
+    });
+    
+    const createFetchAgentNode2 = (prefix: string, index: number) => ({
+      agent: "vanillaFetchAgent",
+      inputs: {
+        when: `:R${prefix.toUpperCase()}${index-1}`,
+        body: `:${prefix.toUpperCase()}${index}`, 
         method: "POST",
         url: "https://node2gpt2025.azurewebsites.net/api/httpTrigger?",
       }
@@ -32,10 +42,12 @@ export async function httpTrigger1(request: HttpRequest, context: InvocationCont
 
     // Dynamically generate nodes
     const nodes = {};
-    ['a', 'b', 'c'].forEach(letter => {
-      for (let i = 1; i <= 3; i++) {
+    letters.forEach(letter => {
+        nodes[`${letter.toUpperCase()}${1}`] = createNode(letter, 1);
+        nodes[`R${letter.toUpperCase()}${1}`] = createFetchAgentNode1(letter, 1);
+      for (let i = 2; i <= maxindex; i++) {
         nodes[`${letter.toUpperCase()}${i}`] = createNode(letter, i);
-        nodes[`R${letter.toUpperCase()}${i}`] = createFetchAgentNode(letter, i);
+        nodes[`R${letter.toUpperCase()}${i}`] = createFetchAgentNode2(letter, i);
       }
     });
 
@@ -51,6 +63,7 @@ export async function httpTrigger1(request: HttpRequest, context: InvocationCont
       concurrency: 2,
       nodes
     };
+    console.log(graphData);
 
     const main = async () => {
       const graph = new GraphAI(graphData, {
@@ -65,7 +78,7 @@ export async function httpTrigger1(request: HttpRequest, context: InvocationCont
     };
 
     const res = await main();
-    console.log("responded!!");
+    console.log("responded!!"+res);
     return res;
   } catch (err) {
     console.error(err);
