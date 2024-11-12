@@ -18,7 +18,6 @@ const jsonFile = {
   urp: 9,
   heart: 0,
   lung: 0,
-  detail: false
 };
 
 const apiUrl = "https://myjumyo.azurewebsites.net/api/HttpTrigger1";
