@@ -25,7 +25,6 @@
 |urp|number|尿蛋白を変換表Aで設定|必須項目|
 |heart|number|心電図の所見を変換表Bで設定|必須項目|
 |lung|number|肺レントゲンの所見を変換表Bで設定|必須項目|
-|detail|boolean|"false"を設定してください。|必須項目|
 
 
 #
